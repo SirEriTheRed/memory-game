@@ -6,7 +6,7 @@ _A minimal **Rock Paper Scissors** game in **HTML, CSS & vanilla JavaScript** - 
 
 [![license](https://img.shields.io/github/license/erithered/shifumi)](./LICENSE)
 
-[Play](#how-to-play) • [Features](#features) • [Acknowledgments](#thanks--acknowledgments)
+**[Live Demo](https://sirerithered.github.io/rock-paper-scissors/)** • [Play](#how-to-play) • [Features](#features) • [Acknowledgments](#thanks--acknowledgments)
 
 </div>
 
@@ -14,15 +14,17 @@ _A minimal **Rock Paper Scissors** game in **HTML, CSS & vanilla JavaScript** - 
 
 ## Table of Contents
 
-- [Features](#features)
-- [Getting Started](#getting-started)
-  - [Prerequisites](#prerequisites)
-  - [Quick Start](#quick-start)
-  - [How to Play](#how-to-play)
-- [File Structure \& Naming](#file-structure--naming)
-- [Contributing](#contributing)
-- [Thanks \& Acknowledgments](#thanks--acknowledgments)
-- [License](#license)
+- [Shifumi](#shifumi)
+  - [Table of Contents](#table-of-contents)
+  - [Features](#features)
+  - [Getting Started](#getting-started)
+    - [Prerequisites](#prerequisites)
+    - [Quick Start](#quick-start)
+    - [How to Play](#how-to-play)
+  - [File Structure \& Naming](#file-structure--naming)
+  - [Contributing](#contributing)
+  - [Thanks \& Acknowledgments](#thanks--acknowledgments)
+  - [License](#license)
 
 ---
 
@@ -64,7 +66,7 @@ I added animations, sounds, and icons, taking the assets from the web:
 
 ### Quick Start
 
-You can either open the [GitHub Pages web app](https://erithered.github.io/shifumi/) or clone the repo and use it locally:
+You can either open the [GitHub Pages web app](https://sirerithered.github.io/rock-paper-scissors/) or clone the repo and use it locally:
 
 ```sh
 git clone https://github.com/erithered/shifumi.git
