@@ -4,7 +4,7 @@
 
 _A minimal **Rock Paper Scissors** game in **HTML, CSS & vanilla JavaScript** - a 2nd-year **BUT Informatique** coursework project._
 
-[![license](https://img.shields.io/github/license/erithered/shifumi)](./LICENSE)
+[![license](https://img.shields.io/github/license/SirEriTheRed/rock-paper-scissors)](https://github.com/SirEriTheRed/rock-paper-scissors)
 
 **[Live Demo](https://sirerithered.github.io/rock-paper-scissors/)** • [Play](#how-to-play) • [Features](#features) • [Acknowledgments](#thanks--acknowledgments)
 
