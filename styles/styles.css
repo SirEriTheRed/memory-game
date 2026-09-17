@@ -1,0 +1,211 @@
+body {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: Arial, sans-serif;
+  height: 100%;
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  background-color: #14161b;
+  flex-direction: column;
+  padding: 15px;
+  box-sizing: border-box;
+}
+
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: #000;
+  color: #fff;
+  padding: 8px 16px;
+  z-index: 100;
+  transition: top 0.2s;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+h1 {
+  color: #cecece;
+  text-align: center;
+  font-size: 3rem;
+}
+
+a {
+  color: #7a85ff;
+}
+
+main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+footer {
+  color: #bebebe;
+}
+
+hr {
+  width: 100%;
+  border: 1px solid #2b2e33;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #14161b;
+
+  color: #cecece;
+  gap: 20px;
+}
+
+#playButtons {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  width: 100%;
+}
+
+.card {
+  background-color: #2b2e33;
+  border: 4px solid #1f2227;
+  color: #cecece;
+  padding: 20px;
+  width: 180px;
+  gap: 20px;
+  text-align: center;
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  fill: #cecece;
+}
+
+.card:hover {
+  animation: jump-shaking 0.83s;
+}
+
+#rockButton:hover {
+  border-color: #5865f2;
+  color: #5865f2;
+  fill: #5865f2;
+}
+
+#rockButton:active {
+  background-color: #5865f2;
+  border-color: #1f2227;
+  color: #1f2227;
+  fill: #1f2227;
+}
+
+#paperButton:hover {
+  border-color: #35ed7e;
+  color: #35ed7e;
+  fill: #35ed7e;
+}
+
+#paperButton:active {
+  background-color: #35ed7e;
+  border-color: #1f2227;
+  color: #1f2227;
+  fill: #1f2227;
+}
+
+#scissorButton:hover {
+  border-color: #ff4cd2;
+  color: #ff4cd2;
+  fill: #ff4cd2;
+}
+
+#scissorButton:active {
+  background-color: #ff4cd2;
+  border-color: #1f2227;
+  color: #1f2227;
+  fill: #1f2227;
+}
+
+button {
+  background-color: #2b2e33;
+  border: 4px solid #1f2227;
+  color: #cecece;
+  padding: 2px 25px;
+  font-weight: bold;
+  border-radius: 10px;
+}
+
+button:hover {
+  background-color: #1f2227;
+  border-color: #cecece;
+  cursor: pointer;
+}
+
+button:active {
+  background-color: #cecece;
+  border-color: #cecece;
+  color: #1f2227;
+  fill: #1f2227;
+}
+
+.rockLabel {
+  color: #5865f2;
+  font-weight: bold;
+}
+
+.paperLabel {
+  color: #35ed7e;
+  font-weight: bold;
+}
+
+.scissorLabel {
+  color: #ff4cd2;
+  font-weight: bold;
+}
+
+@keyframes jump-shaking {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateY(-9px);
+  }
+  35% {
+    transform: translateY(-9px) rotate(17deg);
+  }
+  55% {
+    transform: translateY(-9px) rotate(-17deg);
+  }
+  65% {
+    transform: translateY(-9px) rotate(17deg);
+  }
+  75% {
+    transform: translateY(-9px) rotate(-17deg);
+  }
+  100% {
+    transform: translateY(0) rotate(0);
+  }
+}
+
+span p {
+  text-wrap: wrap;
+}
+
+@media screen and (min-width: 50rem) {
+  .content {
+    width: 50rem;
+    border-radius: 15px;
+    padding: 50px;
+  }
+
+  body {
+    background-color: #1f2227;
+  }
+}
