@@ -130,4 +130,4 @@ Distributed under the [MIT License](./LICENSE). Copyright (c) 2026 Azelann Borde
 
 [↑ Back to top](#shifumi)
 
-*README generated from a template with an LLM-powered coding agent and then edited by me. I guarantee the code is mine, only using AI to assist me with repetitive tasks and fixing some CSS mistakes. To see how the template looks, see [SirEriTheRed/ts-bastion](https://github.com/SirEriTheRed/ts-bastion/)*
+_README generated from a template with an LLM-powered coding agent and then edited by me. I guarantee the code is mine, only using AI to assist me with repetitive tasks and fixing some CSS mistakes. To see how the template looks, see [SirEriTheRed/ts-bastion](https://github.com/SirEriTheRed/ts-bastion/)_

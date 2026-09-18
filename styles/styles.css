@@ -55,7 +55,7 @@ hr {
   border: 1px solid #2b2e33;
 }
 
-.content {
+#content {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -63,16 +63,6 @@ hr {
 
   color: #cecece;
   gap: 20px;
-}
-
-#playButtons {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  gap: 15px;
-  width: 100%;
 }
 
 .card {
@@ -92,45 +82,6 @@ hr {
 
 .card:hover {
   animation: jump-shaking 0.83s;
-}
-
-#rockButton:hover {
-  border-color: #5865f2;
-  color: #5865f2;
-  fill: #5865f2;
-}
-
-#rockButton:active {
-  background-color: #5865f2;
-  border-color: #1f2227;
-  color: #1f2227;
-  fill: #1f2227;
-}
-
-#paperButton:hover {
-  border-color: #35ed7e;
-  color: #35ed7e;
-  fill: #35ed7e;
-}
-
-#paperButton:active {
-  background-color: #35ed7e;
-  border-color: #1f2227;
-  color: #1f2227;
-  fill: #1f2227;
-}
-
-#scissorButton:hover {
-  border-color: #ff4cd2;
-  color: #ff4cd2;
-  fill: #ff4cd2;
-}
-
-#scissorButton:active {
-  background-color: #ff4cd2;
-  border-color: #1f2227;
-  color: #1f2227;
-  fill: #1f2227;
 }
 
 button {
@@ -154,21 +105,6 @@ button:active {
   border-color: #cecece;
   color: #1f2227;
   fill: #1f2227;
-}
-
-.rockLabel {
-  color: #5865f2;
-  font-weight: bold;
-}
-
-.paperLabel {
-  color: #35ed7e;
-  font-weight: bold;
-}
-
-.scissorLabel {
-  color: #ff4cd2;
-  font-weight: bold;
 }
 
 @keyframes jump-shaking {
