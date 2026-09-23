@@ -1,30 +1,41 @@
+const cardContainer = document.getElementById("card-container");
+const card = document.querySelector(".card");
 const dimensions = 150;
-function getImgStart() {
-  return Math.round(Math.random() * 100);
-}
+const ImgStart = Math.round(Math.random() * 100);
 const imgNb = 8;
 
 let imgList = [];
 
-for (let image = 0; image <= imgNb; image++) {
-  let image = `https://picsum.photos/id/${getImgStart()}/${dimensions}`;
+for (let imageIndex = 0; imageIndex < imgNb; imageIndex++) {
+  let image = `https://picsum.photos/seed/${ImgStart + imageIndex}/${dimensions}`;
   imgList.push(image);
 }
 
 let cards = [...imgList, ...imgList];
 
 function shuffle(array) {
-  let shuffled = array;
-  let length = shuffled.length;
-  for (let i = length - 1; i >= 1; i--) {
-    let rdmIndex = Math.round(Math.random() * length);
-    let tmp = shuffled[rdmIndex];
-    shuffled[rdmIndex] = shuffled[i];
-    shuffled[rdmIndex] = tmp;
+  const shuffled = [...array];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
   }
   return shuffled;
 }
 
-cards = shuffle(cards);
+function initGame() {
+  cards = shuffle(cards);
+  cards.forEach((url) => {
+    const card = document.createElement("button");
+    card.className = "card";
+    card.dataset.value = url;
+    card.role = "button";
+    card.tabindex = "0";
 
-console.table(cards);
+    const img = document.createElement("img");
+    img.src = card.dataset.value;
+    card.appendChild(img);
+    cardContainer.appendChild(card);
+  });
+}
+
+initGame();
