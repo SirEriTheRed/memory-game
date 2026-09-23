@@ -59,15 +59,21 @@ function checkMatch() {
   if (firstCard.dataset.value === secondCard.dataset.value) {
     firstCard.classList.add("matched");
     secondCard.classList.add("matched");
+    firstCard.setAttribute("aria-label", firstCard.getAttribute("aria-label").replace("revealed", "matched"));
+    secondCard.setAttribute("aria-label", secondCard.getAttribute("aria-label").replace("revealed", "matched"));
     firstCard = null;
     secondCard = null;
     lockBoard = false;
     matchedCount++;
     checkVictory();
   } else {
+    const flippedFirst = firstCard;
+    const flippedSecond = secondCard;
     setTimeout(() => {
-      firstCard.innerHTML = "";
-      secondCard.innerHTML = "";
+      flippedFirst.innerHTML = "";
+      flippedSecond.innerHTML = "";
+      flippedFirst.setAttribute("aria-label", flippedFirst.getAttribute("aria-label").replace("revealed", "hidden"));
+      flippedSecond.setAttribute("aria-label", flippedSecond.getAttribute("aria-label").replace("revealed", "hidden"));
       firstCard = null;
       secondCard = null;
       lockBoard = false;
@@ -91,6 +97,7 @@ function handleCardClick(card) {
   img.alt = "";
 
   card.appendChild(img);
+  card.setAttribute("aria-label", card.getAttribute("aria-label").replace("hidden", "revealed"));
 
   if (firstCard === null) {
     firstCard = card;
@@ -124,10 +131,12 @@ function initGame() {
   lockBoard = false;
   timeInterval = null;
   updateTimer();
-  cards.forEach((url) => {
+  cards.forEach((url, index) => {
     const card = document.createElement("button");
+    card.type = "button";
     card.classList.add("card");
     card.dataset.value = url;
+    card.setAttribute("aria-label", `Card ${index + 1} of ${cards.length}, hidden`);
     card.addEventListener("click", () => handleCardClick(card));
 
     cardContainer.appendChild(card);
