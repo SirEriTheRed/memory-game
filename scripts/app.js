@@ -1,8 +1,13 @@
 const cardContainer = document.getElementById("card-container");
-const card = document.querySelector(".card");
 const dimensions = 150;
 const ImgStart = Math.round(Math.random() * 100);
 const imgNb = 8;
+
+let firstCard = null;
+let secondCard = null;
+let lockBoard = false;
+let moves = 0;
+let matchedCount = 0;
 
 let imgList = [];
 
@@ -22,18 +27,63 @@ function shuffle(array) {
   return shuffled;
 }
 
+function checkMatch() {
+  if (firstCard.dataset.value === secondCard.dataset.value) {
+    firstCard.classList.add("matched");
+    secondCard.classList.add("matched");
+    firstCard = null;
+    secondCard = null;
+    lockBoard = false;
+    matchedCount++;
+  } else {
+    setTimeout(() => {
+      firstCard.innerHTML = "";
+      secondCard.innerHTML = "";
+      firstCard = null;
+      secondCard = null;
+      lockBoard = false;
+    }, 800);
+  }
+}
+
+function handleCardClick(card) {
+  if (card.classList.contains("matched")) {
+    return;
+  }
+  if (firstCard == card) {
+    return;
+  }
+  if (lockBoard) {
+    return;
+  }
+
+  const img = document.createElement("img");
+  img.src = card.dataset.value;
+  img.alt = "";
+
+  card.appendChild(img);
+
+  if (firstCard === null) {
+    firstCard = card;
+    return;
+  }
+
+  secondCard = card;
+  lockBoard = true;
+  moves++;
+  checkMatch();
+}
+
 function initGame() {
   cards = shuffle(cards);
   cards.forEach((url) => {
     const card = document.createElement("button");
-    card.className = "card";
+    card.classList.add("card");
     card.dataset.value = url;
     card.role = "button";
-    card.tabindex = "0";
+    card.tabIndex = "0";
+    card.addEventListener("click", () => handleCardClick(card));
 
-    const img = document.createElement("img");
-    img.src = card.dataset.value;
-    card.appendChild(img);
     cardContainer.appendChild(card);
   });
 }
