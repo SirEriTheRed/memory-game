@@ -1,5 +1,6 @@
 const cardContainer = document.getElementById("card-container");
 const timerDisplay = document.getElementById("timer-display");
+const resetButton = document.getElementById("restart-button");
 const result = document.getElementById("result");
 const dimensions = 150;
 const ImgStart = Math.round(Math.random() * 100);
@@ -21,6 +22,10 @@ for (let imageIndex = 0; imageIndex < imgNb; imageIndex++) {
 }
 
 let cards = [...imgList, ...imgList];
+
+resetButton.addEventListener("click", () => {
+  initGame();
+});
 
 function shuffle(array) {
   const shuffled = [...array];
@@ -107,18 +112,22 @@ function checkVictory() {
 }
 
 function initGame() {
+  clearInterval(timeInterval);
   cardContainer.innerHTML = "";
+  result.innerText = "You haven't won a game yet";
   cards = shuffle(cards);
   moves = 0;
   matchedCount = 0;
   seconds = 0;
+  firstCard = null;
+  secondCard = null;
+  lockBoard = false;
   timeInterval = null;
+  updateTimer();
   cards.forEach((url) => {
     const card = document.createElement("button");
     card.classList.add("card");
     card.dataset.value = url;
-    card.role = "button";
-    card.tabIndex = "0";
     card.addEventListener("click", () => handleCardClick(card));
 
     cardContainer.appendChild(card);
