@@ -1,4 +1,6 @@
 const cardContainer = document.getElementById("card-container");
+const timerDisplay = document.getElementById("timer-display");
+const result = document.getElementById("result");
 const dimensions = 150;
 const ImgStart = Math.round(Math.random() * 100);
 const imgNb = 8;
@@ -8,6 +10,8 @@ let secondCard = null;
 let lockBoard = false;
 let moves = 0;
 let matchedCount = 0;
+let seconds = 0;
+let timeInterval = null;
 
 let imgList = [];
 
@@ -27,6 +31,25 @@ function shuffle(array) {
   return shuffled;
 }
 
+function formatTime(sec) {
+  const minutes = Math.floor(sec / 60);
+  const seconds = sec % 60;
+  const minutesString = minutes.toString().padStart(2, "0");
+  const secondsString = seconds.toString().padStart(2, "0");
+  return `${minutesString}:${secondsString}`;
+}
+
+function startTimer() {
+  timeInterval = setInterval(() => {
+    seconds++;
+    updateTimer();
+  }, 1000);
+}
+
+function updateTimer() {
+  timerDisplay.innerText = formatTime(seconds);
+}
+
 function checkMatch() {
   if (firstCard.dataset.value === secondCard.dataset.value) {
     firstCard.classList.add("matched");
@@ -35,6 +58,7 @@ function checkMatch() {
     secondCard = null;
     lockBoard = false;
     matchedCount++;
+    checkVictory();
   } else {
     setTimeout(() => {
       firstCard.innerHTML = "";
@@ -71,11 +95,24 @@ function handleCardClick(card) {
   secondCard = card;
   lockBoard = true;
   moves++;
+
   checkMatch();
 }
 
+function checkVictory() {
+  if (matchedCount === imgNb) {
+    clearInterval(timeInterval);
+    result.innerText = `You won the game in ${moves} moves and in ${formatTime(seconds)} minutes and seconds`;
+  }
+}
+
 function initGame() {
+  cardContainer.innerHTML = "";
   cards = shuffle(cards);
+  moves = 0;
+  matchedCount = 0;
+  seconds = 0;
+  timeInterval = null;
   cards.forEach((url) => {
     const card = document.createElement("button");
     card.classList.add("card");
@@ -86,6 +123,7 @@ function initGame() {
 
     cardContainer.appendChild(card);
   });
+  startTimer();
 }
 
 initGame();
